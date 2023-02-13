@@ -1,6 +1,14 @@
 <template>
   <main class="container search">
 
+    <router-link to="/">
+
+    <div class="title">
+        <h2>Rick and Morty Rundown</h2> 
+    </div>
+
+    </router-link>
+
     <form action="return false">
         <div class="form-control">
           <input type="text" class="form-input" placeholder="Type a Character" v-model="lookSearchs">
@@ -25,13 +33,13 @@
 
     <div class="infos">
       <div class="info">
-        <div class="left">Specie</div>
+        <div class="left">species</div>
         <div class="right">
           {{ especie }}
         </div>
       </div>
       <div class="info">
-        <div class="left">Origem</div>
+        <div class="left">origin</div>
         <div class="right">
           {{ origem.name }}
         </div>
@@ -119,10 +127,10 @@ export default {
     
   },
 
-  mounted() {
+  async mounted() {
     this.id = this.$route.params.id;
-    this.getInfos();
-    this.getData();
+    await this.getInfos();
+    await this.getData();
   },
 
   watch:{
