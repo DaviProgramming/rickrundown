@@ -157,8 +157,109 @@ form{
 }
 
 
+&.search{
+
+    font-family: $font-family-second;
+       
+        background: linear-gradient(to top, $black-color -40%,  $primary-color 100%);
+        .card{
+            
+            width: max-content;
+            max-width: 150px;
+            min-height: max-content;
+            background: $primary-color;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0px 0px 20px 1px $primary-color;
+            &-image{
+                width: 150px;
+               
+                img{
+                    width: 100%;
+                    border-radius: 10px 10px 0px 0px;
+                }
+            }
+
+            &-name{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                text-transform: uppercase;
+                
+                letter-spacing: 3px;
+                padding-bottom: 10px;
+                font-family: $font-family-second;
+                font-size: 1rem;
+                height: max-content;
+                
+            }
+        }
+
+        .infos{
+            margin: 50px;
+            background: linear-gradient(to right, $primary-color 50%, transparent 100%);
+            width: 50%;
+            height: max-content;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0px 15px 20px -12px $primary-color;
+            font-family: $font-family-first;
+            .info{
+                
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:last-child .left, &:last-child .right{
+                    padding-bottom: 20px;
+                }
+
+                &:first-child .left, &:first-child .right{
+                    padding-top: 20px;
+                }
+                
+            }
+            .left{
+                color: $white-color;
+               
+              
+                font-size: 1.5rem;
+                
+                text-transform: uppercase;
+                font-weight: 700;
+                background: linear-gradient(to right, $primary-color 50%, transparent 100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 50%;
+               
+            }
+
+            .right{
+                text-align: center;
+                width: 50%;
+                background:transparent;
+                color: $white-color;
+                font-size: 1.5rem;
+               
+            }
+
+            .left, .right{
+                padding: 7px;
+            }
+
+            
+        }
+   
+}
 
 }
+
+
 
 
 

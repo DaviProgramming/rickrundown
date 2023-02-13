@@ -9,7 +9,7 @@
       <div class="form-control">
         <input type="text" class="form-input" placeholder="Type a Character" v-model="lookSearch">
         <div class="input-options" v-if="searchResult != '' ">
-               <div class="option" v-bind:key="index" v-for="(character, index) in searchResult" >
+               <div class="option" v-bind:key="index" v-for="(character, index) in searchResult" v-on:click="redirectCharacter(character)">
                 {{ character.name }}
                </div>
         </div>
@@ -72,6 +72,10 @@ export default {
 
      this.searchResult = option;
 
+    },
+
+    redirectCharacter(character){
+      window.location.href = "/character/" + character.id;
     }
 
     
