@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Mukta:wght@300;400;500;700;800&family=Mulish:wght@400;500;600;700&display=swap');
+
+$primary-color: #16acc9;
+$secondary-color: #d2da4b;
+
+
+$black-color: black;
+$white-color: #fff;
+
+$font-family-first:'Mukta', sans-serif;
+$font-family-second: 'Mulish', sans-serif;
+$font-family-third: 'Creepster', cursive;
+
+body{
+    padding: 0;
+    margin: 0;
+    background: $black-color;
+    font-family: $font-family-first;
+    color: $white-color;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+.container{
+    width: 100vw;
+    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+&.start{
+   
+   
+    background: linear-gradient(rgba(0, 0, 0, 0.046),rgba(0, 0, 0, 0.515)), url(../images/93ab55a0-46ee-43ed-9cc2-e5908308ba13.jpeg);
+    background-size: cover;
+    background-position: center;
+
+    h2{
+       font-family: $font-family-third;
+       font-size: 3rem;
+       color: $primary-color;
+       -webkit-text-stroke: 0.5px $secondary-color;
+       text-shadow: 0px 4px 0px $secondary-color;
+       text-align: center;
+    }
+    h3{
+        text-align: center;
+        font-family: $font-family-second;
+    }
+}
+
+form{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .form-control{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .input-options{
+            margin-top: -15px;
+            padding-top: 25px;
+            padding-bottom: 10px;
+            width: 100%;
+            border: 1px solid $primary-color;
+            box-shadow: 0px 0px 10px $primary-color;
+            border-radius: 10px;
+           
+            max-height: 90px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+
+            .option{
+                cursor: pointer;
+               
+                width: 100%;
+                text-align: center;
+            
+            }
+        }
+    }
+
+    input{
+        z-index: 2;
+        border: 2px solid $secondary-color;
+        outline: none;
+        width: 100%;
+        height: 30px;
+        border-radius: 30px;
+        box-shadow: 0px 0px 10px $secondary-color;
+        background: $white-color;
+        font-family: $font-family-first;
+        font-weight: 700;
+
+        &::placeholder{
+            
+            color: $black-color;
+            font-family: $font-family-second;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 800;
+        }
+    }
+
+    button{
+        cursor: pointer;
+        border: 2px solid $primary-color;
+        background: $primary-color;
+        color: $white-color;
+        font-size: 1rem;
+        width: 45px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow:0px 0px 10px $primary-color;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+
+        &:focus, &:hover{
+            border: 2px solid $white-color;
+            box-shadow:0px 0px 10px $white-color;
+            animation: buttonMove 0.1s ease-in;
+        }
+
+        
+        
+    }
+
+    @keyframes buttonMove {
+        from{
+            border: 2px solid $primary-color;
+            box-shadow:0px 0px 10px $primary-color;
+        }
+
+        to{
+            border: 2px solid $white-color;
+            box-shadow:0px 0px 10px $white-color;
+        }
+    }
+}
+
+.input-options{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $white-color;
+    color: $black-color;
+}
+
+
+
+}
+
+
+
+@media screen and (max-width:480px) {
+    .container.start{
+        background-position: center right;
+    }
+}
