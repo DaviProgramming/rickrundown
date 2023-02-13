@@ -3,7 +3,7 @@
 
     <form action="return false">
         <div class="form-control">
-          <input type="text" class="form-input" placeholder="Type a Character" v-model="lookSearch">
+          <input type="text" class="form-input" placeholder="Type a Character" v-model="lookSearchs">
           <div class="input-options" v-if="searchResult != '' ">
                  <div class="option" v-bind:key="index" v-for="(character, index) in searchResult" v-on:click="redirectCharacter(character)">
                   {{ character.name }}
@@ -61,10 +61,24 @@ export default {
       status: "",
       especie: "",
       origem: "",
+
+      characters: [],
+      lookSearchs: "",
     };
   },
 
   methods: {
+    async getData(){
+      let res = await axios.get("https://rickandmortyapi.com/api/character/");
+      let numberPages = res.data.info.pages;
+
+      for(let i = 0; i < numberPages; i++){
+        let newRes = await axios.get("https://rickandmortyapi.com/api/character/?page=" + i);
+        newRes.data.results.map(character => this.characters.push(character));
+        
+      }
+      
+    },
     async getInfos() {
       let response = await axios.get(
         "https://rickandmortyapi.com/api/character/" + this.id
@@ -78,11 +92,44 @@ export default {
 
       console.log(response.data);
     },
+
+    getSearchWatch(value){
+      
+      let option = [];
+  
+      this.characters.forEach((character) => {
+       
+        if(character.name.toLowerCase().includes(value.toLowerCase())){
+          option.push(character);
+        }
+        else{
+          return;
+        }
+      })
+
+     this.searchResult = option;
+
+    },
+
+    redirectCharacter(character){
+      window.location.href = "/character/" + character.id;
+    }
+
+    
+    
   },
 
   mounted() {
     this.id = this.$route.params.id;
     this.getInfos();
+    this.getData();
+  },
+
+  watch:{
+      lookSearchs(newValue){
+        console.log(newValue)
+        this.getSearchWatch(newValue);
+      }
   },
 };
 </script>
