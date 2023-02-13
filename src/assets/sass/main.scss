@@ -150,6 +150,7 @@ body {
 
   &.search {
     font-family: $font-family-second;
+    
     .form-control{
         margin-bottom: 50px;
        input{
@@ -172,13 +173,16 @@ body {
     background: linear-gradient(to top, $black-color -40%, $primary-color 100%);
     .card {
       width: max-content;
-      max-width: 150px;
+      max-width: 200px;
       min-height: max-content;
       background: $primary-color;
       border-radius: 10px 10px 10px 10px;
       box-shadow: 0px 0px 20px 1px $primary-color;
       &-image {
-        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
 
         img {
           width: 100%;
@@ -192,11 +196,14 @@ body {
         align-items: center;
         text-align: center;
         text-transform: uppercase;
-
+        width: 100%;
+        height: max-content;
+        margin-top: 10px;
+     
         letter-spacing: 3px;
         padding-bottom: 10px;
         font-family: $font-family-second;
-        font-size: 1rem;
+        font-size: 1.1rem;
         height: max-content;
       }
     }
@@ -286,6 +293,13 @@ body {
         form{
             margin-top: 5vh;
         }
+
+        .card-name{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+        }
     }
 
   .info {
@@ -322,5 +336,17 @@ body {
 @media screen and (max-width: 480px) {
   .container.start {
     background-position: center right;
+  }
+
+  .info{
+
+    .left{
+        font-size: 1.2rem!important;
+    }
+
+    .right{
+        font-size: 1rem!important;
+    }
+
   }
 }
